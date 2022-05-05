@@ -9,6 +9,9 @@ void createNode(int data);
 void addAtBeg(int data);
 void addAtEnd(int data);
 void addAtPos(int pos,int data);
+int deleteFromBeg();
+int deleteFromEnd();
+int deleteFromPos(int pos);
 void display();
 int main() {
     addAtBeg(1);
@@ -17,6 +20,8 @@ int main() {
     addAtEnd(4);
     addAtEnd(5);
     addAtPos(2,200);
+    printf("%d\n",deleteFromBeg());
+    printf("%d\n",deleteFromEnd());
     display();
     return 0 ;
 }
@@ -57,6 +62,39 @@ void addAtPos(int pos,int data)
         }node->next=temp->next;//linking
         temp->next=node;
     }
+}
+int deleteFromBeg()
+{ int data=-1;
+    if(head==NULL){}
+    else if(head->next==head)
+    {
+        data=head->data;
+        head=NULL;
+    }
+    else{
+        data=head->data;
+        head=head->next;
+    }tail->next=head;
+    return data;
+}
+int deleteFromEnd()
+{
+    int data=-1;
+    if(head==NULL){}
+    else if(head->next==head)
+    {
+        data=head->data;
+        head=NULL;
+    }
+    else{ temp=head;
+        while(temp->next->next!=head)
+        {
+            temp=temp->next;
+        }data=temp->next->data;
+        temp->next=head;
+        return data;
+    }
+
 }
 void display()
 {
