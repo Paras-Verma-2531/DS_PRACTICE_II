@@ -20,8 +20,6 @@ int main() {
     addAtEnd(4);
     addAtEnd(5);
     addAtPos(2,200);
-    printf("%d\n",deleteFromBeg());
-    printf("%d\n",deleteFromEnd());
     display();
     return 0 ;
 }
@@ -69,11 +67,11 @@ int deleteFromBeg()
     else if(head->next==head)
     {
         data=head->data;
-        head=NULL;
+        head=NULL;c-=1;
     }
     else{
         data=head->data;
-        head=head->next;
+        head=head->next;c-=1;
     }tail->next=head;
     return data;
 }
@@ -84,9 +82,9 @@ int deleteFromEnd()
     else if(head->next==head)
     {
         data=head->data;
-        head=NULL;
+        head=NULL;c-=1;
     }
-    else{ temp=head;
+    else{ temp=head;c-=1;
         while(temp->next->next!=head)
         {
             temp=temp->next;
@@ -95,6 +93,30 @@ int deleteFromEnd()
         return data;
     }
 
+}
+int deleteFromPos(int pos)
+{
+    int data=-1;
+    if(pos>c||pos<1){}
+    else if(head==NULL){}
+    else if(pos==1)
+    {
+     data=deleteFromBeg();
+    }
+    else if(pos==c)
+    {
+        data=deleteFromEnd();
+    }
+    else{
+        int i=1;
+        temp=head;
+        while(i<pos-1)
+        {
+            temp=temp->next;i++;
+        }data=temp->next->data;
+        temp->next=temp->next->next;
+        c-=1;
+    }return data;
 }
 void display()
 {
