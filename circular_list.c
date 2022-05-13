@@ -118,6 +118,18 @@ int deleteFromPos(int pos)
         c-=1;
     }return data;
 }
+void reverse()
+{
+    Node*current,*nextnode,*prev;prev=NULL;
+    current=head;
+    while(current->next!=head)
+    {
+        nextnode=current->next;
+        current->next=prev;
+        prev=current;
+        current=nextnode;
+    }
+}
 void display()
 {
     temp=head;
