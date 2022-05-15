@@ -132,7 +132,8 @@ void reverse()
         prev=current;
         current=nextnode;
     }current->next=prev;
-    head->next=nextnode;
+    tail=head;
+    tail->next=nextnode;
     head=current;
 }
 void display()
