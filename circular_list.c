@@ -12,6 +12,7 @@ void addAtPos(int pos,int data);
 int deleteFromBeg();
 int deleteFromEnd();
 int deleteFromPos(int pos);
+void reverse();
 void display();
 int main() {
     addAtBeg(1);
@@ -19,7 +20,9 @@ int main() {
     addAtEnd(3);
     addAtEnd(4);
     addAtEnd(5);
-    addAtPos(2,200);
+    //addAtPos(2,200);
+    reverse();
+    printf("the reverse list is:\n");
     display();
     return 0 ;
 }
@@ -128,7 +131,9 @@ void reverse()
         current->next=prev;
         prev=current;
         current=nextnode;
-    }
+    }current->next=prev;
+    head->next=nextnode;
+    head=current;
 }
 void display()
 {
